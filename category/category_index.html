@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similar Products</title>
+    <link rel="stylesheet" href="category_style.css">
+    <link rel="stylesheet" href="header_style.css">
+    <link rel="stylesheet" href="footer_style.css">
+</head>
+
+<header class="main-header">
+    <h class="main-text">Adamari</h>
+
+    <li class="header-list">
+        <ul class="element" >Shop</ul>
+        <ul class="element" >Men</ul>
+        <ul class="element" >Women</ul>
+        <ul class="element" >Combos</ul>
+
+    </li>
+        <div class="search-container">
+        <input type="text" id="input" class="user-input" placeholder="Search">
+    </div>
+
+    <ul class="options-list">
+        <li class="heart"><img src="../assets/heart.png" alt="Heart"></li>
+        <li class="user" onclick="window.location.href='../card/card_index.html'"><img src="../assets/user.png" alt="User"></li>
+        <li class="shopping"><img src="../assets/shopping-cart.png" alt="Shopping Cart"></li>
+    </ul>    
+</header>
+
+<body>
+    <div class="products-container">
+        
+    </div>
+    <script>
+
+    const products = [
+        { title: "White T-Shirt", price: "$18.00", image: "../assets/category/photo1.png", brand: "Priya's Brand" },
+        { title: "Dark Green Sweatshirt", price: "$127.00", image: "../assets/category/photo2.png", brand: "Robo's Brand" },
+        { title: "Lavender Sweatshirt", price: "$133.00", image: "../assets/category/photo3.png", brand: "Jhanvi's Brand" },
+        { title: "Urban Jacket", price: "$79.00", image: "../assets/category/photo4.png", brand: "Sagar's Brand" },
+        { title: "Plain White T-Shirt", price: "$123.00", image: "../assets/category/photo1.png", brand: "Priya's Brand" },
+        { title: "Checks Shirt", price: "$123.00", image: "../assets/category/photo2.png", brand: "H&M's Brand" },
+        { title: "One Piece Black Top & Skirt", price: "$123.00", image: "../assets/category/photo3.png", brand: "Nika's Brand" },
+        { title: "Denim Blue Shirt", price: "$38.00", image: "../assets/category/photo4.png", brand: "MOMO's Brand" },
+    ];
+
+    const container = document.querySelector('.products-container');
+
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+    
+        card.innerHTML = `
+            <img src="${product.image}" alt="${product.title}">
+            <div class="product-info">
+                <h3 class="product-title">${product.title}</h3>
+                <p class="product-price">${product.price}</p>
+            </div>
+        `;
+
+        card.onclick=()=>{
+            window.location.href = "../shop/shop_index.html"
+        }
+    
+        container.appendChild(card);
+    });
+
+    </script>
+</body>
+
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>Need Help</h4>
+            <ul>
+                <li><button onclick="window.location.href='../about/contact_us_index.html'">Contact Us</button></li>
+                <li>Track Order</li>
+                <li>Returns & Refunds</li>
+                <li>FAQ's</li>
+                <li>Career</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+                <li><button onclick="window.location.href='../about/about_us_index.html'">About Us</button></li>
+                <li>euphoria Blog</li>
+                <li>euphoriastan</li>
+                <li>Collaboration</li>
+                <li>Media</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>More Info</h4>
+            <ul>
+                <li>Term and Conditions</li>
+                <li>Privacy Policy</li>
+                <li>Shipping Policy</li>
+                <li>Sitemap</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Location</h4>
+            <ul>
+                <li>aahmadjonov2@students.wiut.uz</li>
+                <li>Istikbol Street 12, 100047, Tashkent</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</html>

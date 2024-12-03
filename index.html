@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home/home_style.css">
+    <link rel="stylesheet" href="home/main_banner.css">
+    <link rel="stylesheet" href="home/footer_style.css">
+    <title>Document</title>
+</head>
+
+<header class="main-header">
+    <h class="main-text">Adamari</h>
+
+    <li class="header-list">
+        <ul class="element" onclick="window.location.href='category/category_index.html'">Shop</ul>
+        <ul class="element" onclick="window.location.href='category/category_index.html'">Men</ul>
+        <ul class="element" onclick="window.location.href='category/category_index.html'">Women</ul>
+        <ul class="element" onclick="window.location.href='category/category_index.html'">Combos</ul>
+        <ul class="element" onclick="window.location.href='category/category_index.html'">Joggers</ul>
+    </li>
+
+    <div class="search-container">
+        <input type="text" id="input" class="user-input" placeholder="Search">
+    </div>
+
+    <ul class="options-list">
+        <li class="heart"><img src="assets/heart.png" alt="Heart"></li>
+        <li class="user" onclick="window.location.href='card/card_index.html'"><img src="assets/user.png" alt="User"></li>
+        <li class="shopping"><img src="assets/shopping-cart.png" alt="Shopping Cart"></li>
+    </ul>    
+</header>
+
+<body>
+    <div class="banner-containers">
+        <button class="scroll-button left-button">Previous</button> 
+        <div class="banners" id="banners">
+            <div class="banner">
+                <li class="text-list">
+                    <ul class="small-text">T-shirt / Tops</ul>
+                    <ul class="large-text">Summer <span>Value Pack</span></ul>
+                    <ul class="medium-text">cool / colorful / comfy</ul>
+                    <ul class="button"><button class="buy-button" onclick="window.location.href='shop/shop_index.html'">Shop Now</button></ul>
+                </li>
+                <div class="image-holder">
+                    <img src="assets/Rectangle_77__1_-removebg-preview.png" alt="image" class="image">
+                </div>
+            </div>
+            <div class="banner">
+                <li class="text-list">
+                    <ul class="small-text">Winter Wear</ul>
+                    <ul class="large-text">Cozy <span>Collection</span></ul>
+                    <ul class="medium-text">warm / stylish / snug</ul>
+                    <ul class="button"><button class="buy-button" onclick="window.location.href='shop/shop_index.html'">Shop Now</button></ul>
+                </li>
+                <div class="image-holder">
+                    <img src="assets/Rectangle_77__1_-removebg-preview.png" alt="image" class="image">
+                </div>
+            </div>
+        </div>
+        <button class="scroll-button right-button">Next</button> 
+    </div>
+    
+
+    <script>
+        const banners = document.getElementById('banners');
+        const leftButton = document.querySelector('.left-button');
+        const rightButton = document.querySelector('.right-button');
+        let currentIndex = 0;
+
+        function updateBannerPosition() {
+            banners.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        rightButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % 2; 
+            updateBannerPosition();
+        });
+
+        leftButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + 2) % 2; 
+            updateBannerPosition();
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % 2;
+            updateBannerPosition();
+        }, 30000);
+    </script>
+
+    
+</body>
+
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>Need Help</h4>
+            <ul>
+                <li><button onclick="window.location.href='about/contact_us_index.html'">Contact Us</button></li>
+                <li>Track Order</li>
+                <li>Returns & Refunds</li>
+                <li>FAQ's</li>
+                <li>Career</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+                <li><button onclick="window.location.href='about/about_us_index.html'">About Us</button></li>
+                <li>euphoria Blog</li>
+                <li>euphoriastan</li>
+                <li>Collaboration</li>
+                <li>Media</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>More Info</h4>
+            <ul>
+                <li>Term and Conditions</li>
+                <li>Privacy Policy</li>
+                <li>Shipping Policy</li>
+                <li>Sitemap</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Location</h4>
+            <ul>
+                <li>aahmadjonov2@students.wiut.uz</li>
+                <li>Istikbol Street 12, 100047, Tashkent</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</html>
